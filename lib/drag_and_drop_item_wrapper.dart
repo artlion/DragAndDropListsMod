@@ -131,7 +131,7 @@ class _DragAndDropItemWrapper extends State<DragAndDropItemWrapper> with TickerP
             onDragCompleted: () => _setDragging(false),
             onDraggableCanceled: (_, __) => _setDragging(false),
             onDragEnd: (_) => _setDragging(false),
-            child: MouseRegion(cursor: SystemMouseCursors.grab, child: widget.child.child),
+            child: widget.child.child,
           ),
         );
       } else {
@@ -192,7 +192,10 @@ class _DragAndDropItemWrapper extends State<DragAndDropItemWrapper> with TickerP
               onPointerMove: _onPointerMove,
               onPointerDown: widget.parameters!.onPointerDown,
               onPointerUp: widget.parameters!.onPointerUp,
-              child: draggable,
+              child: MouseRegion(
+                cursor: _dragging ? SystemMouseCursors.grabbing : SystemMouseCursors.grab,
+                child: draggable,
+              ),
             ),
           ],
         ),
