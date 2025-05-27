@@ -139,7 +139,10 @@ class _DragAndDropListWrapper extends State<DragAndDropListWrapper> with TickerP
         onPointerMove: _onPointerMove,
         onPointerDown: widget.parameters.onPointerDown,
         onPointerUp: widget.parameters.onPointerUp,
-        child: draggable,
+        child: MouseRegion(
+          cursor: _dragging ? SystemMouseCursors.grabbing : SystemMouseCursors.grab,
+          child: draggable,
+        ),
       ),
     ];
 
