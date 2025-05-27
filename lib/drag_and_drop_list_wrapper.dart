@@ -96,7 +96,7 @@ class _DragAndDropListWrapper extends State<DragAndDropListWrapper> with TickerP
           onDragCompleted: () => _setDragging(false),
           onDraggableCanceled: (_, __) => _setDragging(false),
           onDragEnd: (_) => _setDragging(false),
-          child: MouseRegion(cursor: SystemMouseCursors.grab, child: dragAndDropListContents),
+          child: dragAndDropListContents,
         );
       } else {
         draggable = Draggable<DragAndDropListInterface>(
